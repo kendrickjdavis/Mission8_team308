@@ -1,7 +1,15 @@
+using Mission_8.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<QuandrantContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:QuadrantConnection"]);
+});
 
 var app = builder.Build();
 
