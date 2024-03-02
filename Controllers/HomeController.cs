@@ -7,9 +7,9 @@ namespace Mission_8.Controllers
 {
     public class HomeController : Controller
     {
-        private ITaskRepository _repo;
+        private ITaskRepository _repo;    
 
-        public HomeController(ITaskRepository temp)
+        public HomeController(ITaskRepository temp) 
         {
             _repo = temp;
         }
@@ -30,9 +30,25 @@ namespace Mission_8.Controllers
         [HttpGet]
         public IActionResult Quadrant()
         {
-            var blah = _repo.Tasks.Where(x => x.IsCompleted == false).ToList();
+            var joinedData = _repo.Tasks
+                .Where(x => x.IsCompleted == false)
+                .Join(_repo.Categories,
+                    task => task.CategoryId,
+                    category => category.CategoryId,
+                    (task, category) => new TaskModel // Use TaskModel directly
+                    {
+                        TaskId = task.TaskId,
+                        TaskDescription = task.TaskDescription,
+                        DueDate = task.DueDate,
+                        CategoryId = task.CategoryId,
+                        Category = category, // Include the Category object
+                        QuadrantId = task.QuadrantId,
+                        // Quadrant = task.Quadrant,
+                        IsCompleted = task.IsCompleted
+                    })
+                .ToList();
 
-            return View(blah);
+            return View(joinedData);
         }
 
         [HttpGet]
@@ -57,7 +73,7 @@ namespace Mission_8.Controllers
         [HttpGet]
         public IActionResult TaskForm()
         {
-            return View(new TaskModel());
+            return View();
         }
 
         [HttpPost]

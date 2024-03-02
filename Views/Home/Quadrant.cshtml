@@ -6,7 +6,7 @@
         padding: 0px;
         margin: 0px;
         min-height: 100px;
-    } 
+    }
 
     /* You can customize the background colors based on your preference */
     .quadrant-i {
@@ -49,7 +49,7 @@
                     {
                         <tbody>
                             <tr>
-                                @if (x.QuadrantId == 0) {
+                                @if (x.QuadrantId == 1) {
                                 <td>@x.TaskDescription</td>
                                 <td>@x.DueDate</td>
                                 //<td>@x.CategoryName</td>
@@ -78,7 +78,7 @@
                     {
                         <tbody>
                             <tr>
-                                @if (x.QuadrantId == 1)
+                                @if (x.QuadrantId == 2)
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
@@ -110,7 +110,7 @@
                     {
                         <tbody>
                             <tr>
-                                @if (x.QuadrantId == 2)
+                                @if (x.QuadrantId == 3)
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
@@ -140,7 +140,7 @@
                     {
                         <tbody>
                             <tr>
-                                @if (x.QuadrantId == 3)
+                                @if (x.QuadrantId == 4)
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
