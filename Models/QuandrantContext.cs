@@ -8,7 +8,7 @@ namespace Mission_8.Models
         {
         }
 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskModel> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Quadrant> Quadrants { get; set; }
 
