@@ -106,11 +106,11 @@
                             <td>Category</td>
                         </tr>
                     </thead>
-                    @foreach (var x in Task)
+                    @foreach (var x in Model)
                     {
                         <tbody>
                             <tr>
-                                @if (x.Quadrant.QuadrantId == 2 && x.IsCompleted == true)
+                                @if (x.QuadrantId == 2 && x.IsCompleted == true)
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>

@@ -1,5 +1,5 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model Mission_8.Models.Task
+@model TaskModel
 
 @{
     ViewData["Title"] = "Task Form";
@@ -27,6 +27,7 @@
                 <option value="4">Quadrant 4</option>
             </select>
             <label asp-for="CategoryId">Category: </label>
+            @* Todo: This needs to be gotten from the database *@
             <select asp-for="CategoryId" class="form-control">
                 <option value="1">Home</option>
                 <option value="2">School</option>
