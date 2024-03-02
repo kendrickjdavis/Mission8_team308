@@ -29,10 +29,27 @@ namespace Mission_8.Controllers
         [HttpGet]
         public IActionResult Quadrant()
         {
-            var blah = _repo.Tasks.ToList();
-            
-            return View(blah);
+            var joinedData = _repo.Tasks
+                .Where(x => x.IsCompleted == false)
+                .Join(_repo.Categories,
+                    task => task.CategoryId,
+                    category => category.CategoryId,
+                    (task, category) => new TaskModel // Use TaskModel directly
+                    {
+                        TaskId = task.TaskId,
+                        TaskDescription = task.TaskDescription,
+                        DueDate = task.DueDate,
+                        CategoryId = task.CategoryId,
+                        Category = category, // Include the Category object
+                        QuadrantId = task.QuadrantId,
+                        // Quadrant = task.Quadrant,
+                        IsCompleted = task.IsCompleted
+                    })
+                .ToList();
+
+            return View(joinedData);
         }
+
 
 
         public IActionResult TaskForm()

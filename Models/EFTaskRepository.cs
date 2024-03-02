@@ -12,5 +12,7 @@ namespace Mission_8.Models
         }
 
         public List<TaskModel> Tasks => _context.Tasks.ToList();
+        public List<Category> Categories => _context.Categories.ToList();
+        public List<Quadrant> Quadrants => _context.Quadrants.ToList();
     }
 }
