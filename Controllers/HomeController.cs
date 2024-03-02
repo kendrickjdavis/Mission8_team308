@@ -73,6 +73,9 @@ namespace Mission_8.Controllers
         [HttpGet]
         public IActionResult TaskForm()
         {
+            ViewBag.Categories = _repo.Categories
+                .ToList();
+            
             return View(new TaskModel());
         }
 
@@ -90,6 +93,9 @@ namespace Mission_8.Controllers
         [HttpGet]
         public IActionResult Edit(int ID)
         {
+            ViewBag.Categories = _repo.Categories
+                .ToList();
+            
             var recordToEdit = _repo.Tasks
                 .Single(x => x.TaskId == ID);
 
