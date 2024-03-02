@@ -24,7 +24,7 @@ namespace Mission_8.Controllers
 
         public IActionResult Privacy()
         {
-            return View();
+            return Redirect("https://nsa.gov");
         }
 
         [HttpGet]
