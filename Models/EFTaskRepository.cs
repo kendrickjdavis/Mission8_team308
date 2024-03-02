@@ -20,10 +20,9 @@ namespace Mission_8.Models
 
         }
 
-        public void RemoveTask(int ID) 
+        public void RemoveTask(TaskModel task) 
         {
-            var recordToDelete = _context.Tasks.Single(x => x.TaskId == ID);
-            _context.Tasks.Remove(recordToDelete);
+            _context.Tasks.Remove(task);
             _context.SaveChanges(); 
         }
     }

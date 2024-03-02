@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission_8.Models;
 using System.Diagnostics;
 
@@ -34,10 +35,19 @@ namespace Mission_8.Controllers
             return View(blah);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult DeleteTask(int ID)
         {
-            _repo.RemoveTask(ID);
+            var recordToDelete = _repo.Tasks
+                .Single(x => x.TaskId == ID);
+
+            return View("delConf", recordToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteTask(TaskModel task)
+        {
+            _repo.RemoveTask(task);
 
 
             return RedirectToAction("Quadrant"); 

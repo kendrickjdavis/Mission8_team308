@@ -6,6 +6,6 @@
 
         public void AddTask(TaskModel task);
 
-        public void RemoveTask(int ID);
+        public void RemoveTask(TaskModel task);
     }
 }
