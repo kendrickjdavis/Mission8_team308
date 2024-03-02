@@ -6,12 +6,15 @@ namespace Mission_8.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private ITaskRepository _repo;    
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ITaskRepository temp) 
         {
-            _logger = logger;
+            _repo = temp;
         }
+
+        // Start of my views
+
 
         public IActionResult Index()
         {
@@ -23,15 +26,25 @@ namespace Mission_8.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Quadrant()
         {
-            return View();
+            var blah = _repo.Tasks.ToList();
+            
+            return View(blah);
         }
+
 
         public IActionResult TaskForm()
         {
             return View();
         }
+
+
+        // End of my views
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

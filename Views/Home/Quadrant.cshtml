@@ -1,4 +1,4 @@
-﻿@model List<Task>
+﻿@model List<TaskModel>
 <style>
     /* Custom styles for the To-Do list quadrants */
     .quadrant {
@@ -45,14 +45,14 @@
                             <td>Category</td>
                         </tr>
                     </thead>
-                    @foreach (var x in Task)
+                    @foreach (var x in Model)
                     {
                         <tbody>
                             <tr>
-                                @if (x.Quadrant.QuadrantId == 0 && x.IsCompleted == true) {
+                                @if (x.QuadrantId == 0 && x.IsCompleted == true) {
                                 <td>@x.TaskDescription</td>
                                 <td>@x.DueDate</td>
-                                <td>@x.Category.CategoryName</td>
+                                //<td>@x.CategoryName</td>
                                 <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                 <td><a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                                 <td><a class="btn btn-success" asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId">Complete</a></td>
@@ -74,15 +74,15 @@
                             <td>Category</td>
                         </tr>
                     </thead>
-                    @foreach (var x in Task)
+                    @foreach (var x in Model)
                     {
                         <tbody>
                             <tr>
-                                @if (x.Quadrant.QuadrantId == 1 && x.IsCompleted == true)
+                                @if (x.QuadrantId == 1 && x.IsCompleted == true)
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
-                                    <td>@x.Category.CategoryName</td>
+                                    //<td>@x.Category.CategoryName</td>
                                     <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                     <td><a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                                     <td><a class="btn btn-success" asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId">Complete</a></td>
@@ -114,7 +114,7 @@
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
-                                    <td>@x.Category.CategoryName</td>
+                                    //<td>@x.Category.CategoryName</td>
                                     <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                     <td><a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                                     <td><a class="btn btn-success" asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId">Complete</a></td>
@@ -136,15 +136,15 @@
                             <td>Category</td>
                         </tr>
                     </thead>
-                    @foreach (var x in Task)
+                    @foreach (var x in Model)
                     {
                         <tbody>
                             <tr>
-                                @if (x.Quadrant.QuadrantId == 3 && x.IsCompleted == true)
+                                @if (x.QuadrantId == 3 && x.IsCompleted == true)
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
-                                    <td>@x.Category.CategoryName</td>
+                                    //<td>@x.Category.CategoryName</td>
                                     <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                     <td><a class="btn btn-warning" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
                                     <td><a class="btn btn-success" asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId">Complete</a></td>
