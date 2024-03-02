@@ -1,5 +1,8 @@
 ﻿
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using SQLitePCL;
+using System;
 
 namespace Mission_8.Models
 {
@@ -26,6 +29,19 @@ namespace Mission_8.Models
         {
             _context.Tasks.Remove(task);
             _context.SaveChanges(); 
+        }
+
+        public void EditTask(TaskModel task)
+        {
+            _context.Tasks.Update(task);
+            _context.SaveChanges();
+        }
+
+        public void CompleteTask(TaskModel task)
+        {
+            task.IsCompleted = true;
+            _context.Tasks.Update(task);
+            _context.SaveChanges();
         }
     }
 }

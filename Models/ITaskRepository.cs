@@ -9,5 +9,9 @@
         public void AddTask(TaskModel task);
 
         public void RemoveTask(TaskModel task);
+
+        public void EditTask(TaskModel task);
+
+        public void CompleteTask(TaskModel task);
     }
 }

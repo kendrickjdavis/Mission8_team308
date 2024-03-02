@@ -52,10 +52,14 @@
                                 @if (x.QuadrantId == 1) {
                                 <td>@x.TaskDescription</td>
                                 <td>@x.DueDate</td>
-                                //<td>@x.CategoryName</td>
+                                <td>@x.Category.CategoryName</td>
                                 <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                 <td><a class="btn btn-warning" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TaskId">Delete</a></td>
-                                <td><a class="btn btn-success" asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId">Complete</a></td>
+                                <td>
+                                    <form asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId" method="post" onsubmit="return confirm('Are you sure you want to mark this task as complete?');">
+                                        <button type="submit" class="btn btn-success">Complete</button>
+                                    </form>
+                                </td>
                                 }
                             </tr>
                         </tbody>
@@ -82,10 +86,14 @@
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
-                                    //<td>@x.Category.CategoryName</td>
+                                    <td>@x.Category.CategoryName</td>
                                     <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                     <td><a class="btn btn-warning" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TaskId">Delete</a></td>
-                                    <td><a class="btn btn-success" asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId">Complete</a></td>
+                                    <td>
+                                        <form asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId" method="post" onsubmit="return confirm('Are you sure you want to mark this task as complete?');">
+                                            <button type="submit" class="btn btn-success">Complete</button>
+                                        </form>
+                                    </td>
                                 }
                             </tr>
                         </tbody>
@@ -114,10 +122,14 @@
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
-                                    //<td>@x.Category.CategoryName</td>
+                                    <td>@x.Category.CategoryName</td>
                                     <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                     <td><a class="btn btn-warning" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TaskId">Delete</a></td>
-                                    <td><a class="btn btn-success" asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId">Complete</a></td>
+                                    <td>
+                                        <form asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId" method="post" onsubmit="return confirm('Are you sure you want to mark this task as complete?');">
+                                            <button type="submit" class="btn btn-success">Complete</button>
+                                        </form>
+                                    </td>
                                 }
                             </tr>
                         </tbody>
@@ -144,10 +156,14 @@
                                 {
                                     <td>@x.TaskDescription</td>
                                     <td>@x.DueDate</td>
-                                    //<td>@x.Category.CategoryName</td>
+                                    <td>@x.Category.CategoryName</td>
                                     <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
                                     <td><a class="btn btn-warning" asp-controller="Home" asp-action="DeleteTask" asp-route-id="@x.TaskId">Delete</a></td>
-                                    <td><a class="btn btn-success" asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId">Complete</a></td>
+                                    <td>
+                                        <form asp-controller="Home" asp-action="Complete" asp-route-id="@x.TaskId" method="post" onsubmit="return confirm('Are you sure you want to mark this task as complete?');">
+                                            <button type="submit" class="btn btn-success">Complete</button>
+                                        </form>
+                                    </td>
                                 }
                             </tr>
                         </tbody>

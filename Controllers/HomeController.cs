@@ -7,9 +7,9 @@ namespace Mission_8.Controllers
 {
     public class HomeController : Controller
     {
-        private ITaskRepository _repo;    
+        private ITaskRepository _repo;
 
-        public HomeController(ITaskRepository temp) 
+        public HomeController(ITaskRepository temp)
         {
             _repo = temp;
         }
@@ -66,7 +66,7 @@ namespace Mission_8.Controllers
             _repo.RemoveTask(task);
 
 
-            return RedirectToAction("Quadrant"); 
+            return RedirectToAction("Quadrant");
         }
 
 
@@ -86,6 +86,42 @@ namespace Mission_8.Controllers
 
             return RedirectToAction("Quadrant");
         }
+
+        [HttpGet]
+        public IActionResult Edit(int ID)
+        {
+            var recordToEdit = _repo.Tasks
+                .Single(x => x.TaskId == ID);
+
+            return View("TaskForm", recordToEdit);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TaskModel recordToEdit)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.EditTask(recordToEdit);
+            }
+
+            return RedirectToAction("Quadrant");
+        }
+
+
+        [HttpPost]
+        public IActionResult Complete(int ID)
+        {
+            var recordToComplete = _repo.Tasks
+                .Single(x => x.TaskId == ID);
+
+            if (ModelState.IsValid)
+            {
+                _repo.CompleteTask(recordToComplete);
+            }
+
+            return RedirectToAction("Quadrant");
+        }
+
 
         // End of my views
 
