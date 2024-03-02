@@ -14,11 +14,11 @@ namespace Mission_8.Models
         [Required]
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
         [Required]
-        // [ForeignKey("QuadrantId")]
+        //[ForeignKey("QuadrantId")]
         public int QuadrantId { get; set; }
-        // public Quadrant Quadrant { get; set; }
+        //public Quadrant Quadrant { get; set; }
         public bool IsCompleted { get; set; }
     }
 }

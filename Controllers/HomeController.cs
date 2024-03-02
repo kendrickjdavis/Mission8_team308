@@ -73,7 +73,7 @@ namespace Mission_8.Controllers
         [HttpGet]
         public IActionResult TaskForm()
         {
-            return View();
+            return View(new TaskModel());
         }
 
         [HttpPost]
@@ -84,7 +84,7 @@ namespace Mission_8.Controllers
                 _repo.AddTask(t);
             }
 
-            return View(new TaskModel());
+            return RedirectToAction("Quadrant");
         }
 
         // End of my views
