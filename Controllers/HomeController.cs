@@ -6,9 +6,9 @@ namespace Mission_8.Controllers
 {
     public class HomeController : Controller
     {
-        private ITaskRepository _repo;    
+        private ITaskRepository _repo;
 
-        public HomeController(ITaskRepository temp) 
+        public HomeController(ITaskRepository temp)
         {
             _repo = temp;
         }
@@ -29,17 +29,37 @@ namespace Mission_8.Controllers
         [HttpGet]
         public IActionResult Quadrant()
         {
-            var blah = _repo.Tasks.ToList();
-            
+            var blah = _repo.Tasks.Where(x => x.IsCompleted == false).ToList();
+
             return View(blah);
         }
 
-
-        public IActionResult TaskForm()
+        [HttpPost]
+        public IActionResult DeleteTask(int ID)
         {
-            return View();
+            _repo.RemoveTask(ID);
+
+
+            return RedirectToAction("Quadrant"); 
         }
 
+
+        [HttpGet]
+        public IActionResult TaskForm()
+        {
+            return View(new TaskModel());
+        }
+
+        [HttpPost]
+        public IActionResult TaskForm(TaskModel t)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.AddTask(t);
+            }
+
+            return View(new TaskModel());
+        }
 
         // End of my views
 

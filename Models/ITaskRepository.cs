@@ -4,5 +4,8 @@
     {
         List<TaskModel> Tasks { get; }
 
+        public void AddTask(TaskModel task);
+
+        public void RemoveTask(int ID);
     }
 }
